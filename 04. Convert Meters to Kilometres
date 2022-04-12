@@ -1,0 +1,4 @@
+function solve(input){
+result = input/1000
+console.log(result.toFixed(2))
+}
