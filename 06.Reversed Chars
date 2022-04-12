@@ -1,0 +1,4 @@
+function solve(firstLetter,secondLetter,lastLetter) {
+let result = `${lastLetter} ${secondLetter} ${firstLetter}`
+console.log(result)
+}
