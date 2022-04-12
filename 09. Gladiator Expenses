@@ -1,0 +1,45 @@
+function solve(lostFightsCount, helmetPrice, swordPrice, shieldPrice, armorPrice) {
+
+   
+    let sum = 0;
+    
+    let counterShield = 0
+    //lostFightsCount - брой изгубени битки
+    //helmetPrice - цена на каската
+    //swordPrice - цена на меча
+    //shieldPrice - цена на щита
+    //armorPrice - цена на бронята
+
+    //на всяка втора изгубена игра каската(helmet) се чупи
+    //на всяка трета изгубена игра мечът(sword) се чупи
+    //ако мечът и каската се счупят в една и съща изгубена битка се чупи щитът(shield)
+    //всеки втори път когато щитът му се счупи бронята(armor) трябва да се ремонтира
+    for (let i = 1; i <=  lostFightsCount; i++) {
+       
+        if (i % 2 === 0) {
+
+            sum += helmetPrice;
+
+            //console.log(`${sum} - helmes price `)
+        }
+        if (i % 3 === 0) {
+
+            sum += swordPrice;
+
+            //console.log(`${sum} - sword price `)
+        }
+        if (i % 2 === 0 && i % 3 === 0) {
+            counterShield++
+            sum += shieldPrice;
+           
+            //console.log(`${sum} shield price ${counterShield}`)
+
+        }
+        if (counterShield % 2 === 0 && counterShield > 0) {
+            sum += armorPrice
+            counterShield = 0
+            //console.log(`${sum} - armor price`)
+        }
+    }
+    console.log(`Gladiator expenses: ${sum.toFixed(2)} aureus`)
+}
